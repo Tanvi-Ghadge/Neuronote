@@ -11,7 +11,7 @@ export const generateToken = (userId, res) => {
     httpOnly: process.env.NODE_ENV === "production", // prevent XSS attacks cross-site scripting attacks
     sameSite: "none", // CSRF attacks cross-site request forgery attacks
     secure: process.env.NODE_ENV === "production",
-    // path:"/",
+    path:"/",
   });
 
   return token;

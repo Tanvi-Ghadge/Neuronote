@@ -65,12 +65,12 @@ const login = async (req, res) => {
 };
 const logout = (req, res) => {
   try {
-    // res.cookie("jwt", null, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   sameSite: "none",
-    //   expires: new Date(0), // Expire the cookie immediately
-    // });
+    res.cookie("jwt", null, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      expires: new Date(0), // Expire the cookie immediately
+    });
 
     res.clearCookie("jwt"); // Ensure removal of cookie
 
