@@ -1,14 +1,14 @@
 import User from "../models/user.model.js";
 import Entry from "../models/entry.model.js";
 import { sendMail } from "../lib/mailer.js";
-import moment from 'moment'
+import moment from "moment";
 
 export const sendDailyPrompt = async () => {
   try {
     const users = await User.find();
 
-    const todayStart = moment().startOf('day').toDate();
-    const todayEnd = moment().endOf('day').toDate();
+    const todayStart = moment().startOf("day").toDate();
+    const todayEnd = moment().endOf("day").toDate();
 
     for (const user of users) {
       const entry = await Entry.findOne({
@@ -17,19 +17,23 @@ export const sendDailyPrompt = async () => {
       });
 
       if (!entry) {
-        const prompt = '🪞 How was your day today? Reflect with NeuroNote.';
-        const html = `
-          <p>Hi ${user.name || 'there'},</p>
-          <p>NeuroNote is here to guide your daily reflection.</p>
-          <blockquote><b>${prompt}</b></blockquote>
-          <p><a href="https://your-frontend-url.com">Write your thoughts now</a></p>
-        `;
+        const prompt =
+          "🪞 Take a moment to breathe and reflect — how did today feel for you?";
+        const frontendUrl =
+          process.env.FRONTEND_URL || "https://your-default-url.com";
 
-        await sendMail(user.email, 'Your Daily Reflection Reminder', html);
+        const html = `
+    <p>Hi ${user.name || "there"},</p>
+    <p>NeuroNote is here to gently guide your daily reflection.</p>
+    <blockquote><b>${prompt}</b></blockquote>
+    <p><a href="${frontendUrl}" target="_blank">Start journaling with NeuroNote →</a></p>
+  `;
+
+        await sendMail(user.email, "Your Daily Reflection Reminder", html);
         console.log(`📧 Prompt sent to ${user.email}`);
       }
     }
   } catch (err) {
-    console.error('❌ Error sending daily prompts:', err.message);
+    console.error("❌ Error sending daily prompts:", err.message);
   }
 };
