@@ -5,4 +5,6 @@ import { sendDailyPrompt } from "../controllers/nudge.controller.js";
 cron.schedule("0 21 * * *", async () => {
   console.log("⏰ Sending daily prompts at 9 PM...");
   await sendDailyPrompt();
+},{
+  timezone: "Asia/Kolkata"
 });
