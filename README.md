@@ -40,8 +40,8 @@
 ## Getting Started (for Development)
 
 ```bash
-git clone https://github.com/your-username/neuronote.git
-cd neuronote
+git clone https://github.com/Tanvi-Ghadge/Neuronote.git
+cd Neuronote
 npm install
 npm run dev
 ```
