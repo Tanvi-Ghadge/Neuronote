@@ -23,6 +23,10 @@ app.use(
 app.use("/api/auth",authrouter)
 app.use("/api/entry",entryrouter)
 app.use("/api",router)
+app.get("/api/ping", (req, res) => {
+  res.send("cron-js");
+});
+
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);
