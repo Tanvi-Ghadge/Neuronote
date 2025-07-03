@@ -18,8 +18,7 @@
 
 **Additional Capabilities**  
 - **Audio Entry Support** – Voice-to-text transcription using Deepgram  
-- **AI-Powered Prompts & Reflections** – Personalized with Cohere’s natural language capabilities  
-- **Mood Streak Detection** – Identifies negative streaks and suggests supportive content  
+- **AI-Powered Prompts & Reflections** – Personalized with Cohere’s natural language capabilities tailored to user's past entries
 - **Daily Journaling Reminder** – Email reminder sent at 9:00 PM IST via scheduled cron job
 
 ---
