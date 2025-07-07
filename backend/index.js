@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser())
 const allowedOrigins = [
-  "https://ai-meeting-analyzer-vrdj.vercel.app",
+  "https://neuronote-two.vercel.app",
   "http://localhost:5173",
 ];
 
