@@ -4,15 +4,14 @@ import connectdb from "./lib/db.js";
 import authrouter from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import entryrouter from "./routes/entry.route.js";
-import router from "./routes/nudge.route.js";
-import './lib/cron.js'
-import cors from 'cors'
+import nudgerouter from "./routes/nudge.route.js";
+import "./lib/cron.js";
+import cors from "cors";
 dotenv.config();
-
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 const allowedOrigins = [
   "https://neuronote-two.vercel.app",
   "http://localhost:5173",
@@ -31,11 +30,11 @@ app.use(
   })
 );
 
-app.options("*", cors());
 
-app.use("/api/auth",authrouter)
-app.use("/api/entry",entryrouter)
-app.use("/api/nudge",router)
+
+app.use("/api/auth", authrouter);
+app.use("/api/entry", entryrouter);
+app.use("/api/nudge", nudgerouter);
 app.get("/api/ping", (req, res) => {
   res.send("cron-js");
 });
