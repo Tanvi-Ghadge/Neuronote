@@ -35,7 +35,7 @@ app.options("*", cors());
 
 app.use("/api/auth",authrouter)
 app.use("/api/entry",entryrouter)
-app.use("/api",router)
+app.use("/api/nudge",router)
 app.get("/api/ping", (req, res) => {
   res.send("cron-js");
 });
