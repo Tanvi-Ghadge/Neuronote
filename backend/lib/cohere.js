@@ -31,7 +31,7 @@ Respond only in valid JSON:
 `;
 
     const response = await co.chat({
-      model: "command-r-plus",
+      model: "command-r-plus-08-2024",
       messages: [{ role: "user", content: prompt }],
     });
 
@@ -57,7 +57,7 @@ Now write the weekly emotional summary:
 `;
 
     const response = await co.chat({
-      model: "command-r-plus",
+      model: "command-r-plus-08-2024",
       messages: [{ role: "user", content: prompt }],
     });
 
@@ -87,7 +87,7 @@ Now write the prompt:
 `;
 
     const response = await co.chat({
-      model: "command-r-plus",
+      model: "command-r-plus-08-2024",
       messages: [{ role: "user", content: prompt }],
     });
 
@@ -125,7 +125,7 @@ Return only raw JSON with no extra text.
 `;
 
     const response = await co.chat({
-      model: "command-r-plus",
+      model: "command-r-plus-08-2024",
       messages: [{ role: "user", content: prompt }],
     });
 
